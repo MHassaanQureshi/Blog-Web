@@ -5,7 +5,7 @@ export default function Hero() {
     return (
         <div className="w-full flex flex-col items-center relative">
             <Image
-                src="/images/Hero.png"
+                src="/images/hero.png"
                 width={600}
                 height={200}
                 alt="unable to load"
