@@ -30,8 +30,9 @@ const renderers: Components = {
   },
 };
 
-const BlogPost = ({ params }: BlogPostProps) => {
-  const { id } = params; // Destructure `id` directly from `params`
+const BlogPost = async ({ params }: BlogPostProps) => {
+  // Await the `params` object if it's a Promise
+  const { id } = await params;
   const post = getPostData(id);
 
   return (
