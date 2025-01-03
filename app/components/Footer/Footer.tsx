@@ -39,11 +39,10 @@ export default function Footer(){
             </div>
             <div className="text-sm flex flex-col border-t-2 w-full items-center md:flex-row md:justify-between">
                 <div className="flex">
-                <p className="text-[##272343] opacity-50">@ 2021 - Blogy - Designed & Develop by </p>
-                <span className="text-black opacity-100">Zakirsoft</span>
+                <p className="text-[##272343] opacity-50">@ 2024 - MetaBlogs - Designed & Develop by </p>
+                <span className="text-black opacity-100">M.Hassaan Qureshi</span>
                 </div>
-                <Image src="/images/payment.png" alt="unable to load" width={200} height={40} className="mix-blend-multiply"/>
-
+                
             </div>
         </div>
     )

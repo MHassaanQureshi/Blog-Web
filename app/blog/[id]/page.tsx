@@ -26,12 +26,12 @@ const getPostData = (id: string) => {
 // Custom image renderer for ReactMarkdown
 const renderers: Components = {
   img({ src, alt, title }) {
-    return <Image src={src} alt={alt} title={title} width={400} height={200} />;
+    return <Image src={src || ''} alt={alt || ''} title={title} width={400} height={200} />;
   },
 };
 
-const BlogPost = ({ params }: BlogPostProps) => {
-  const { id } = params;
+const BlogPost = async ({ params }: BlogPostProps) => {
+  const { id } = await params; // Await `params` since it's now a Promise
   const post = getPostData(id);
 
   return (
