@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown, { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import CommentSection from '@/app/components/Comment/Comment';
 import Image from 'next/image';
@@ -30,8 +30,8 @@ const renderers: Components = {
   },
 };
 
-const BlogPost = async ({ params }: BlogPostProps) => {
-  const { id } = await params; // Await `params` since it's now a Promise
+const BlogPost = ({ params }: BlogPostProps) => {
+  const { id } = params; // Destructure `id` directly from `params`
   const post = getPostData(id);
 
   return (
