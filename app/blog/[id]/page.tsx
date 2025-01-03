@@ -7,7 +7,7 @@ import CommentSection from '@/app/components/Comment/Comment';
 import Image from 'next/image';
 
 interface BlogPostProps {
-  params: { id: string };
+  params: Promise<{ id: string }>; // Define `params` as a Promise
 }
 
 const getPostData = (id: string) => {
@@ -31,15 +31,14 @@ const renderers: Components = {
 };
 
 const BlogPost = async ({ params }: BlogPostProps) => {
-  // Await the `params` object if it's a Promise
-  const { id } = await params;
+  const { id } = await params; // Await `params` since it's now a Promise
   const post = getPostData(id);
 
   return (
-    <div className='flex flex-col items-center gap-6'>
-      <h1 className='w-[90%] font-bold'>{post.title}</h1>
+    <div className="flex flex-col items-center gap-6">
+      <h1 className="w-[90%] font-bold">{post.title}</h1>
       <p>{post.date}</p>
-      <span className='w-[70%] flex flex-col items-center gap-6'>
+      <span className="w-[70%] flex flex-col items-center gap-6">
         <ReactMarkdown remarkPlugins={[remarkGfm]} components={renderers}>
           {post.content}
         </ReactMarkdown>
